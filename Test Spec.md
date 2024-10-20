@@ -1,6 +1,6 @@
 **TEST_SPEC.md**
 ___Test Specification___
-This document defines the test cases for verifying the correctness of the modules (tshirts.py, misaligned.py, and alerter.py) and highlights scenarios where the tests may fail.
+
 
 _**1. Module: tshirts.c**_
 
