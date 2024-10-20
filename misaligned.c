@@ -48,7 +48,7 @@ int main() {
     ColorPair colorMap[25];  // Array to hold the color map entries
     
     // Generate the color map
-    int totalEntries = generateColorMap(colorMap);
+    generateColorMap(colorMap);  // Removed unused variable
 
     // Test the generated color map using the mock function
     testColorMap(colorMap);
