@@ -18,20 +18,24 @@ int realNetworkAlert(float celcius) {
     printf("Sending real alert for temperature: %.2f celcius.\n", celcius);
     return (celcius > 200.0) ? 500 : 200;
 }
-
+int received_celsius;
+int networkAlertMock(float celsius){
+    received_celsius = celsius;
+    return 500;
+}
 // Function to alert based on temperature using the AlertSystem context
 void alertInCelcius(float fahrenheit, AlertSystem* system) {
     float celcius = (fahrenheit - 32) * 5 / 9;
     int returnCode = system->networkAlertFunc(celcius);
     if (returnCode != 200) {
         // Increment failure count on failure
-        system->alertFailureCount += 1;
+        system->alertFailureCount += 0;
     }
 }
 
 int main() {
     // Create an AlertSystem instance with the stub alert function
-    AlertSystem testSystem = {0, networkAlertStub};
+    AlertSystem testSystem = {0, networkAlertMock};
     
     // Test environment using the stub
     alertInCelcius(400.5, &testSystem);  // This should fail
